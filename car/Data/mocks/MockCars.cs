@@ -1,0 +1,70 @@
+﻿using car.Data.interfaces;
+using car.Data.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace car.Data.mocks
+{
+    public class MockCars : IAllCars
+    {
+        private readonly ICarsCategory _categoryCars = new MockCategory();
+        public IEnumerable<Car> Cars
+        {
+            get
+            {
+                return new List<Car>
+                {
+                    new Car {
+                        name = "Tesla",
+                        shortDesc= "Стоимость около 15 кредитов ЛНР",
+                        longDesc="покупать смысла нету зарядить не сможешь с 4 этажа по переноске только и ожидаешь зарядки 2 года+ украдут переноску и кабель зарядки, то есть нужны ещё камеры блять СЛАВА УКРАИне нАХУЙ",
+                        img= "https://otvet.imgsmail.ru/download/11855968_a7264278e1f6cd0fc2ebdde695fe1747_800.png",
+                        price = "12536 запплаты лнр и 62 кредита",
+                        isFavourite=true,available=true,
+                        Category=_categoryCars.AllCategories.Last()
+                    },
+
+                     new Car{
+                        name = "Прима мобиль AMG H63",
+                        shortDesc = "Пушка гонка, нужно возить с собой трос и пусковые проводки, до 100 за 0.16мс",
+                        longDesc= "Карбюратор, инжектор, инспектор проректор, ИК-порт, блютуз, туз, козырь, валет, дама, румба, сальса, танго, манго, Мис Бахар, сеть магазинов Сабина, сисле, Элвис Пресли, Джек Дэниелс, Уолт Дисней, Френсис Форд Коппола, акапелла, опера, хор, нейша хор, винзавод, Новый Год, Новруз Байрам, День Независимости, Праздник Св. Патрика.Дальше. Фул-салон, наверху-внизу люк, панорама, балкон, фасад, смотровая площадка, зеркало заднего вида, зеркало дисплея, зеркало фона, зеркало заставки, приставка, 10 к 1 ставка, пол-ставки, подставка, булавка, козявка.Пошли дальше. Затем - DVD, VCD, впереди, не перди, CD, и не рыпайся, MP3, MP4, М-пакет, М-торба, М-зембиль, changer, excange, I see no changes, California love, Two of America′s most wanted, Hit′em Up, мемори-пакет, мемори-кард, мультимедиа-кард, флеш-карт, кард-ридер, сидер, гнойный пидер, Лидер, АНС, Аз-ТВ, Аз Саманд, Аз-Петрол, аста ла виста, Vista, XP, Windows",
+                        img= "https://drive-boom.ru/gallery/opel/photo/opel-h-2004-2007-7454sm.jpeg",
+                        price= "5 компутеров и квартира в антрасити",
+                        isFavourite =true, available=true,
+                        Category= _categoryCars.AllCategories.First()
+
+                     },
+                     new Car
+                     {
+                         name ="Shevrolet Trushin 750Li Long",
+                         shortDesc="Самая топовая комплектация Shevrolet Tahoe, p.s. это авео(",
+                         longDesc ="Машина топ Расход бензина 0 л-100км (если использовать газ) Никогда не ломается если не ездить, 0-100- возможно , можно лить даже водку она будет не против, стоимость запчастей как пачка дарсайда, возможность докинуть саб в багажник если не возить картошку на дачу,Пробег - 0 по рф и всех стран кроме украины и лнр",
+                         img = "https://a.d-cd.net/344aaecs-960.jpg",
+                         price = "21л самогона 15л дизеля и 2 кофе с вога + 4 кальяна биты",
+                         isFavourite =true, available=true,
+                         Category= _categoryCars.AllCategories.First()
+                     },
+                     new Car
+                     {
+                         name= "Pasasatb 5раз",
+                         shortDesc="тачка премиум класса епта, кампфорт на 10из10 , скоро 7из10, управляемость 6из10 ",
+                         longDesc= "Не бита не крашена, выебана дважды,освятили в церви 4 раза, руль не грызли, музыка есть, 2 улитки под капотом, турбина тоже под капотом, можно ебаться в ней и с ней тоже",
+                         img= "https://i.pinimg.com/originals/3d/ed/7b/3ded7baa3ce21e76a899671b0e4699ae.jpg",
+                         price ="2 мои жопы и через месяц 1000 долларов (1к152520 рублям)",
+                         isFavourite =true, available=true,
+                         Category= _categoryCars.AllCategories.First()
+                     }
+                    
+                }; // надо ещё сделать приму мобиль трушина мобиль и украина мобиль.
+            }
+        }
+        public IEnumerable<Car> GetFavCars { get; set; }
+
+        public Car getObjectCar(int carId)
+        {
+            throw new NotImplementedException();
+        }
+    }
+}
