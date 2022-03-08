@@ -1,9 +1,6 @@
 ﻿using car.Data.interfaces;
 using car.Data.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 
 namespace car.Data.mocks
@@ -16,8 +13,8 @@ namespace car.Data.mocks
             {
                 return new List<Category>
                 {
-                    new Category {categoryName = "Электрички" ,desc = "@$! - что-то на богатом"},
-                    new Category {categoryName = "Мафынки" ,desc = "Может позволить любой у кого зарплата более 12кРублс"}
+                    new Category {CategoryName = "Электрички" ,Desc = "@$! - что-то на богатом"},
+                    new Category {CategoryName = "Мафынки" ,Desc = "Может позволить любой у кого зарплата более 12кРублс"}
                 };
             }
         }

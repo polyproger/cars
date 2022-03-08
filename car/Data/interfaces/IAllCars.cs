@@ -1,8 +1,5 @@
 ﻿using car.Data.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace car.Data.interfaces
 {
@@ -10,6 +7,6 @@ namespace car.Data.interfaces
     {
         IEnumerable<Car> Cars { get; }
         IEnumerable<Car> GetFavCars { get; set; }
-        Car getObjectCar(int carId);
+        Car GetObjectCar(int carId);
     }
 }

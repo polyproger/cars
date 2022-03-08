@@ -1,15 +1,10 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using car.Data.interfaces;
 using car.Data.mocks;
 using Microsoft.OpenApi.Models;
+using DependensyInjection;
 
 namespace car
 {
@@ -18,10 +13,11 @@ namespace car
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers().Services
-                    .AddTransient<IAllCars, MockCars>()
-                    .AddTransient<ICarsCategory, MockCategory>()
-                    .AddSwaggerGen(c =>   
+            services.AddControllers();
+            services.AddTransient<IAllCars, MockCars>();
+            services.AddTransient<ICarsCategory, MockCategory>();
+            services.AddBusinessLayer();
+            services.AddSwaggerGen(c =>   
                     {
                         c.SwaggerDoc("v1", new OpenApiInfo { Title = "Slava Ukraine", Version = "1.0.0" });
                         c.EnableAnnotations();
