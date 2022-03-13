@@ -1,6 +1,4 @@
-﻿namespace car.Data.Models
-{
-    public class Car
+﻿  public class Car
     {
         public int Id { get; set; }
         public string Name { get; set; }    
@@ -11,6 +9,6 @@
         public bool IsFavourite { get; set; }
         public bool Available { get; set; }
         public int CategoryID { get; set; }
-        public virtual Category Category { get; set; }
+
     }
-}
+

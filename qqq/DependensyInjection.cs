@@ -12,7 +12,6 @@ namespace DependensyInjection
         public static IServiceCollection AddBusinessLayer(this IServiceCollection services)
         {
             return services.AddScoped<ICarsServices, CarsService>();
-           
         }
     }
 }

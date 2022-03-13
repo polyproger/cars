@@ -1,5 +1,4 @@
-﻿using car.Data.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace car.ViewModels
 {

@@ -14,8 +14,6 @@ namespace car
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddTransient<IAllCars, MockCars>();
-            services.AddTransient<ICarsCategory, MockCategory>();
             services.AddBusinessLayer();
             services.AddSwaggerGen(c =>   
                     {
@@ -28,7 +26,7 @@ namespace car
         {
             app.UseDeveloperExceptionPage()
                .UseSwagger()
-               .UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Dewlad.ID.Api 2.0.0"))
+               .UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Car.Api 2.0.0"))
                .UseReDoc(c => c.SpecUrl("/swagger/v1/swagger.json"));
             app.UseCors(x => x.AllowAnyOrigin()
                               .AllowAnyMethod()

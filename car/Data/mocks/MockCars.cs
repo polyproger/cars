@@ -1,14 +1,12 @@
-﻿using car.Data.interfaces;
-using car.Data.Models;
+﻿using car.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace car.Data.mocks
 {
-    public class MockCars : IAllCars
+    public class MockCars
     {
-        private readonly ICarsCategory _categoryCars = new MockCategory();
         public IEnumerable<Car> Cars
         {
             get
@@ -22,7 +20,6 @@ namespace car.Data.mocks
                         Img= "https://otvet.imgsmail.ru/download/11855968_a7264278e1f6cd0fc2ebdde695fe1747_800.png",
                         Price = "12536 запплаты лнр и 62 кредита",
                         IsFavourite=true,Available=true,
-                        Category=_categoryCars.AllCategories.Last()
                     },
 
                      new Car{
@@ -32,7 +29,6 @@ namespace car.Data.mocks
                         Img= "https://drive-boom.ru/gallery/opel/photo/opel-h-2004-2007-7454sm.jpeg",
                         Price= "5 компутеров и квартира в антрасити",
                         IsFavourite =true, Available=true,
-                        Category= _categoryCars.AllCategories.First()
 
                      },
                      new Car
@@ -43,7 +39,6 @@ namespace car.Data.mocks
                          Img = "https://a.d-cd.net/344aaecs-960.jpg",
                          Price = "21л самогона 15л дизеля и 2 кофе с вога + 4 кальяна биты",
                          IsFavourite =true, Available=true,
-                         Category= _categoryCars.AllCategories.First()
                      },
                      new Car
                      {
@@ -53,7 +48,6 @@ namespace car.Data.mocks
                          Img= "https://i.pinimg.com/originals/3d/ed/7b/3ded7baa3ce21e76a899671b0e4699ae.jpg",
                          Price ="2 мои жопы и через месяц 1000 долларов (1к152520 рублям)",
                          IsFavourite =true, Available=true,
-                         Category= _categoryCars.AllCategories.First()
                      }
                     
                 }; // надо ещё сделать приму мобиль трушина мобиль и украина мобиль.

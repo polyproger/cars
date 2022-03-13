@@ -1,11 +1,10 @@
-﻿using car.Data.interfaces;
-using car.Data.Models;
+﻿using car.Data.Models;
 using System.Collections.Generic;
 
 
 namespace car.Data.mocks
 {
-    public class MockCategory : ICarsCategory
+    public class MockCategory
     {
         public IEnumerable<Category> AllCategories
         {

@@ -6,7 +6,7 @@ namespace Cars.BLL.Contracts
     public interface ICarsServices
     {
        
-        CarDto GetCar();
+        CarDto GetCar(long id);
 
         List<CarDto> GetCars();
     }
