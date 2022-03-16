@@ -17,7 +17,7 @@ namespace car
             services.AddBusinessLayer();
             services.AddSwaggerGen(c =>   
                     {
-                        c.SwaggerDoc("v1", new OpenApiInfo { Title = "Slava Ukraine", Version = "1.0.0" });
+                        c.SwaggerDoc("v1", new OpenApiInfo { Title = "Car Api", Version = "1.0.0" });
                         c.EnableAnnotations();
                     });
         }
@@ -34,9 +34,6 @@ namespace car
                .UseHttpsRedirection()
                .UseRouting()
                .UseEndpoints(endpoints => endpoints.MapControllers());
-
         }
     }
 }
-    
-

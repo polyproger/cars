@@ -17,26 +17,24 @@ namespace car.Controllers
     [ApiController]
     public class CarsController : ControllerBase
     {
-        
         private readonly ICarsServices _carsServices;
 
-        
         public CarsController(ICarsServices carsService) => _carsServices = carsService;
 
         [HttpGet("")]
         [ProducesResponseType(typeof(CarViewModel), (int)HttpStatusCode.OK)]
-        [SwaggerOperation(Summary = "Получение Автомобилей ")]
+        [SwaggerOperation(Summary = "Получение автомобилей")]
         public IActionResult GetCar()
         {
             var destObject = _carsServices.Adapt<CarViewModel>();
             _carsServices.Adapt(destObject);
-            var destinations = destObject; // - хуй пойму и рабоает с ним и без него
+            var destinations = destObject; 
              return Ok(destinations);
         }
 
         [HttpPost]
         [ProducesResponseType(typeof(List<CarViewModel>), (int)HttpStatusCode.OK)]
-        [SwaggerOperation(Summary = "Получение листа автомобилей ")]
+        [SwaggerOperation(Summary = "Получение листа автомобилей")]
         public IActionResult GetCars()
         {
             var cars = _carsServices.Adapt<CarViewModel>();

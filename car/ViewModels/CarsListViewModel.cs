@@ -4,7 +4,7 @@ namespace car.ViewModels
 {
     public class CarsListViewModel
     {
-        public IEnumerable<Car> AllCars { get; set; }
-        public string CurrCategory { get; set; }
+        //public IEnumerable< AllCars { get; set; }
+        //public string CurrCategory { get; set; }
     }
 }

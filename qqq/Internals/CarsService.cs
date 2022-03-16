@@ -8,7 +8,7 @@ namespace Cars.BLL.Internals
     {
         public CarDto GetCar(long id)
         {
-            return new CarDto() { Id=id, Name = "Mashinka", Description ="all hello i`ts test"};
+            return new CarDto() { Id=id, Name = "Mashinka", Description = "all hello i`ts test" };
         }
 
         public List<CarDto> GetCars()
