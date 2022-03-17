@@ -1,15 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using car.Data.interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using car.ViewModels;
-using Swashbuckle.AspNetCore.Annotations;
-using System.Net;
+﻿using car.ViewModels;
 using Cars.BLL.Contracts;
 using Cars.BLL.Dtos;
 using Mapster;
+using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
+using System.Collections.Generic;
+using System.Net;
 
 namespace car.Controllers
 {
@@ -21,34 +17,35 @@ namespace car.Controllers
 
         public CarsController(ICarsServices carsService) => _carsServices = carsService;
 
-        [HttpGet("")]
+        [HttpGet("{id}")]
         [ProducesResponseType(typeof(CarViewModel), (int)HttpStatusCode.OK)]
-        [SwaggerOperation(Summary = "Получение автомобилей")]
-        public IActionResult GetCar()
+        [SwaggerOperation(Summary = "Получение автомобиля")]
+        public IActionResult GetCar(long id)
         {
-            var destObject = _carsServices.Adapt<CarViewModel>();
-            _carsServices.Adapt(destObject);
-            var destinations = destObject; 
-             return Ok(destinations);
+            var car = _carsServices.GetCar(id);
+            var result = car.Adapt<CarViewModel>();
+
+            return Ok(result);
         }
 
-        [HttpPost]
+        [HttpPost("page")]
         [ProducesResponseType(typeof(List<CarViewModel>), (int)HttpStatusCode.OK)]
-        [SwaggerOperation(Summary = "Получение листа автомобилей")]
+        [SwaggerOperation(Summary = "Получение автомобилей")]
         public IActionResult GetCars()
         {
-            var cars = _carsServices.Adapt<CarViewModel>();
-            _carsServices.Adapt(cars);
-            var result = cars;
+            var cars = _carsServices.GetCars();
+            var result = cars.Adapt<List<CarViewModel>>();
             return Ok(result);
-            //  var cars = _carsServices.GetCars();
-            //  var result = new List<CarViewModel>();
-            //      foreach (var car in cars)
-            //  {
-            //     var destObject = result.Adapt<CarViewModel>();
-            //     var ViewModel = new CarViewModel() { Id = car.Id, Description = car.Description, Name = car.Name };
-            //    result.Add(ViewModel);
-            // }
+        }
+        [HttpPost("")]
+        [ProducesResponseType(typeof(CarViewModel), (int)HttpStatusCode.OK)]
+        [SwaggerOperation(Summary = "Добавление автомобилей")]
+        public IActionResult AddCar(AddCarViewModel Add)
+        {
+            var addCarDto = Add.Adapt<AddCarDto>();
+            var car = _carsServices.AddCar(addCarDto);
+            var result = car.Adapt<AddCarViewModel>();
+            return Ok(result);
         }
     }
 }

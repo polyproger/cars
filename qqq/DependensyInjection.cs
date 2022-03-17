@@ -1,9 +1,6 @@
-﻿using Cars.BLL.Internals;
-using Cars.BLL.Contracts;
-using System.Collections.Generic;
-using Microsoft.Extensions.Configuration;
+﻿using Cars.BLL.Contracts;
+using Cars.BLL.Internals;
 using Microsoft.Extensions.DependencyInjection;
-using System;
 
 namespace DependensyInjection
 {

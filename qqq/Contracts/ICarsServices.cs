@@ -8,5 +8,7 @@ namespace Cars.BLL.Contracts
         CarDto GetCar(long id);
 
         List<CarDto> GetCars();
+
+        CarDto AddCar(AddCarDto addCarDto);
     }
 }

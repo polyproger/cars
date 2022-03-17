@@ -1,10 +1,8 @@
+using DependensyInjection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
-using car.Data.interfaces;
-using car.Data.mocks;
 using Microsoft.OpenApi.Models;
-using DependensyInjection;
 
 namespace car
 {
@@ -15,9 +13,9 @@ namespace car
         {
             services.AddControllers();
             services.AddBusinessLayer();
-            services.AddSwaggerGen(c =>   
+            services.AddSwaggerGen(c =>
                     {
-                        c.SwaggerDoc("v1", new OpenApiInfo { Title = "Car Api", Version = "1.0.0" });
+                        c.SwaggerDoc("v1", new OpenApiInfo { Title = "Car Api", Version = "2.0.0" });
                         c.EnableAnnotations();
                     });
         }
