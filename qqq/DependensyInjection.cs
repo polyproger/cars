@@ -8,7 +8,7 @@ namespace DependensyInjection
     {
         public static IServiceCollection AddBusinessLayer(this IServiceCollection services)
         {
-            return services.AddScoped<ICarsServices, CarsService>();
+            return services.AddScoped<ICarsServices, CarsService>().AddScoped<IAccountsServices, AccountsService>();
         }
     }
 }

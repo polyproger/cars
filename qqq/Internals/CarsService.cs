@@ -10,6 +10,14 @@ namespace Cars.BLL.Internals
     {
         private static List<CarDto> _cars = new List<CarDto>();
 
+        public CarDto AddCar(AddCarDto addCarDto)
+        {
+            var newCar = addCarDto.Adapt<CarDto>();
+            newCar.Id = _cars.Count + 1;
+            _cars.Add(newCar);
+            return newCar;
+        }
+
         public CarDto GetCar(long id)
         {
             return _cars.FirstOrDefault(x => x.Id == id);
@@ -18,13 +26,6 @@ namespace Cars.BLL.Internals
         public List<CarDto> GetCars()
         {
             return _cars;
-        }
-        public CarDto AddCar(AddCarDto addCarDto)
-        {
-            var newCar = addCarDto.Adapt<CarDto>();
-            newCar.Id = _cars.Count + 1;
-            _cars.Add(newCar);
-            return newCar;
         }
     }
 }

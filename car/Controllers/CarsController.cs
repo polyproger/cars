@@ -17,7 +17,7 @@ namespace car.Controllers
 
         public CarsController(ICarsServices carsService) => _carsServices = carsService;
 
-        [HttpGet("{id}")]
+        [HttpPost("{id}")]
         [ProducesResponseType(typeof(CarViewModel), (int)HttpStatusCode.OK)]
         [SwaggerOperation(Summary = "Получение автомобиля")]
         public IActionResult GetCar(long id)
@@ -35,6 +35,7 @@ namespace car.Controllers
         {
             var cars = _carsServices.GetCars();
             var result = cars.Adapt<List<CarViewModel>>();
+
             return Ok(result);
         }
         [HttpPost("")]
@@ -45,7 +46,9 @@ namespace car.Controllers
             var addCarDto = Add.Adapt<AddCarDto>();
             var car = _carsServices.AddCar(addCarDto);
             var result = car.Adapt<AddCarViewModel>();
+
             return Ok(result);
         }
+
     }
 }
